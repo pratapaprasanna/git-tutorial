@@ -14,7 +14,7 @@ def sub(a,b):
     return a-b
 
 def sumnum(a, b, c):
-    return a+b+c
+    return a+b-c
 
 
 print (add(19,25))
