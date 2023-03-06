@@ -1,13 +1,10 @@
-FROM ubuntu:latest
+FROM python:3.9 as dev
 
-RUN apt update;
+RUN pip install poetry==1.0.0
+ENV PATH="/root/.poetry/bin:${PATH}"
 
-RUN apt install -y python3 python3-pip
+WORKDIR /app/
 
-RUN pip install flask
-
-RUN mkdir /app
-
-COPY web_app.py /app
-
-ENTRYPOINT python3 /app/web_app.py
+ADD . /app
+RUN poetry install
+CMD poetry run python /app/web_app.py
