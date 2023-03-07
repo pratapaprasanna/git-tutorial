@@ -7,6 +7,7 @@ authors = ["goutham <gypsycrit@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 flask = "^2.2.3"
+black = "^23.1.0"
 
 [tool.poetry.dev-dependencies]
 
