@@ -7,4 +7,4 @@ WORKDIR /app/
 
 ADD . /app
 RUN poetry install
-CMD poetry run python /app/web_app.py
+CMD poetry run python web_app.py
