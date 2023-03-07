@@ -7,9 +7,7 @@ jobs:
       - image: cimg/python:3.10
     steps:
       - checkout
-      - run:
-          name: "Do Lint Checks"
-          run: |
+      - run: |
             pip install poetry==1.0.0
             poetry install
             poetry run black --check .
