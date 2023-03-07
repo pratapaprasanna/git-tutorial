@@ -10,9 +10,9 @@ jobs:
       - run:
           name: "Do Lint Checks"
           run: |
-          pip install poetry==1.0.0
-          poetry install
-          poetry run black --check .
+            pip install poetry==1.0.0
+            poetry install
+            poetry run black --check .
 
 workflows:
   ci-lint-workflow:
