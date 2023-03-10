@@ -31,7 +31,7 @@ jobs:
       - run: |
             pip install poetry==1.0.0
             poetry install
-            poetry run python -m unittest test_calc.py
+            poetry run python -m unittest test_unit_calc.py
 
 
 # Invoke jobs via workflows

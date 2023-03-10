@@ -1,6 +1,7 @@
 import unittest
 import calc
 
+
 class CalcTestCase(unittest.TestCase):
     """Tests for `calc.py`."""
 
@@ -12,5 +13,6 @@ class CalcTestCase(unittest.TestCase):
         """Is 5, 3 doesnt give 7"""
         self.assertNotEqual(7, calc.add(5, 3))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
