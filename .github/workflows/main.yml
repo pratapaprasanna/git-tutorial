@@ -6,12 +6,11 @@ jobs:
     name: a
     runs-on: ubuntu-latest
     steps:
-      - run: echo "A"
+      - run: echo "A1213416546557" > ~/run_result.txt
       - id: set
         run: |
-          echo "::set-output name=run_job_b::yes"
-    outputs:
-      run_job_b: ${{ steps.set.outputs.run_job_b }}
+          "vercel-dp-url=$(cat ~/run_result.txt)"
+          echo "DP_URL=$vercel-dp-url" >> $GITHUB_ENV
    b:
     name: b
     runs-on: ubuntu-latest
@@ -19,7 +18,9 @@ jobs:
       - a
     if: needs.a.outputs.run_job_b == 'yes'
     steps:
-      - run: exit 1
+      - run: |
+         echo ${{ env.DP_URL }}
+         exit 1
    c:
     name: c
     runs-on: ubuntu-latest
