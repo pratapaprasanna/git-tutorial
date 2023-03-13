@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - a
-    if: needs.a.outputs.run_job_b == 'yes'
+    if: success()
     steps:
       - run: |
          echo ${{ env.DP_URL }}
