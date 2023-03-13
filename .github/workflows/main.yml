@@ -9,8 +9,7 @@ jobs:
       - id: set
         run: |
           echo "A1213416546557" > ~/run_result.txt
-          vercel-dp-url="$(cat ~/run_result.txt)"
-          echo "DP_URL=$vercel-dp-url" >> $GITHUB_ENV
+          echo "DP_URL=$(cat ~/run_result.txt)" >> $GITHUB_ENV
    b:
     name: b
     runs-on: ubuntu-latest
