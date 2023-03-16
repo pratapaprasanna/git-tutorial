@@ -4,8 +4,6 @@ module "ec2_instance" {
 
   name = "spot-tf-instance"
 
-  create_spot_instance = true
-
   ami                    = "ami-0f8ca728008ff5af4"
   instance_type          = "t2.micro"
   key_name               = "gypsycrit"
