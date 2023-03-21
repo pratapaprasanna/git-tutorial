@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginxexample
+  namespace: experiment
+data:
+  # property-like keys; each key maps to a simple value
+  user: "goutham"
