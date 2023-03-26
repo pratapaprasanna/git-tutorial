@@ -1,0 +1,5 @@
+- name: Install packages on launched instances
+  hosts: ansibleserver
+  gather_facts: no
+  roles:
+     - base_packages

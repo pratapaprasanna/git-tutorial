@@ -1,0 +1,25 @@
+---
+- name: Install required packages
+  block:
+    - name: Run the equivalent of "apt-get update" as a separate step
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Update apt and install necessary packages
+      apt:
+        pkg:
+          - git
+          - apache2
+          - vim
+          - nano
+        state: latest
+        update_cache: true
+  become: true
+
+- name: Install app related directory
+  block:
+    - name: Create app directory
+      ansible.builtin.file:
+        path: "{{ app_home }}"
+        state: directory
+        mode: '0775'  
