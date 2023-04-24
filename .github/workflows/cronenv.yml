@@ -20,9 +20,9 @@ jobs:
           echo 'PARAM_ENV=release' >> $GITHUB_ENV
 
       - name: setenvprod
-        if: github.event.schedule=='*/3 * * * *'
+        if: github.event.schedule=='*/1 * * * *'
         run: |
-          echo 'PARAM_ENV=release' >> $GITHUB_ENV
+          echo 'PARAM_ENV=prod' >> $GITHUB_ENV
 
       - name: check env value  # check env value
         run: |
