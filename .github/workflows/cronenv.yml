@@ -15,12 +15,12 @@ jobs:
           fetch-depth: 0
 
       - name: setenvrelease
-        if: github.event.schedule=='0 0 * * *'
+        if: github.event.schedule=='*/2 * * * *'
         run: |
           echo "::set-env name=PARAM_ENV::release"
 
       - name: setenvprod
-        if: github.event.schedule=='0 1 * * *'
+        if: github.event.schedule=='*/3 * * * *'
         run: |
           echo "::set-env name=PARAM_ENV::production"
 
