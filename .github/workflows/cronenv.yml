@@ -17,12 +17,12 @@ jobs:
       - name: setenvrelease
         if: github.event.schedule=='*/2 * * * *'
         run: |
-          echo "::set-env name=PARAM_ENV::release"
+          echo 'PARAM_ENV=release' >> $GITHUB_ENV
 
       - name: setenvprod
         if: github.event.schedule=='*/3 * * * *'
         run: |
-          echo "::set-env name=PARAM_ENV::production"
+          echo 'PARAM_ENV=release' >> $GITHUB_ENV
 
       - name: check env value  # check env value
         run: |
