@@ -3,7 +3,7 @@ name: Upgrade Helm chart
 on:
   schedule:
     - cron: "*/2 * * * *"
-    - cron: "*/3 * * * *"
+    - cron: "*/1 * * * *"
 
 jobs:
   execute:
