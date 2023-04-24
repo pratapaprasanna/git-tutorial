@@ -1,0 +1,37 @@
+name: Upgrade Helm chart
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+    - cron: "*/6 * * * *"
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: setenvrelease
+        if: github.event.schedule=='0 0 * * *'
+        run: |
+          echo "::set-env name=PARAM_ENV::release"
+
+      - name: setenvprod
+        if: github.event.schedule=='0 1 * * *'
+        run: |
+          echo "::set-env name=PARAM_ENV::production"
+
+      - name: check env value  # check env value
+        run: |
+          echo $PARAM_ENV
+
+      - name: Upgrade Helm chart
+        env:
+          PARAM_ENV: $PARAM_ENV
+          AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: /bin/bash ./check_env.sh
