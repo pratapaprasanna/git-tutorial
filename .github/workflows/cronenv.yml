@@ -1,9 +1,9 @@
 name: Upgrade Helm chart
 
-on:
-  schedule:
-    - cron: "*/2 * * * *"
-    - cron: "*/1 * * * *"
+# on:
+#   schedule:
+#     - cron: "*/2 * * * *"
+#     - cron: "*/1 * * * *"
 
 jobs:
   execute:
